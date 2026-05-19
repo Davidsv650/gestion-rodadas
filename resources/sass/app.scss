@@ -1,0 +1,60 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+.fc-event:hover {
+    transform: scale(1.05);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.fc {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.modal-content {
+    border-radius: 15px;
+}
+
+.modal-header {
+    background-color: #212529;
+    color: white;
+}
+.modal-body p {
+    font-size: 15px;
+}
+
+.img-container {
+    height: 220px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Imagen */
+.img-circuito {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+/* Hover imagen */
+.card:hover .img-circuito {
+    transform: scale(1.05);
+}
+
+/* Hover card */
+.card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
