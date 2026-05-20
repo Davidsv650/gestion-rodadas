@@ -26,4 +26,11 @@ Route::get('/rodadas-json', [RodadaController::class, 'rodadasJson'])->middlewar
 
 Auth::routes();
 
+
+
+
+
+
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
