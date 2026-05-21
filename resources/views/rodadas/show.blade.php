@@ -214,7 +214,7 @@
 
                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
 
-                    <img src="{{ asset('storage/' . $imagen->imagen) }}"
+                    <img src="{{ asset($imagen->imagen) }}"
                          class="d-block w-100">
 
                 </div>
@@ -224,7 +224,7 @@
                 {{-- FALLBACK --}}
                 <div class="carousel-item active">
 
-                    <img src="{{ asset('storage/' . $rodada->circuito->imagen) }}"
+                    <img src="{{ asset($rodada->circuito->imagen) }}"
                          class="d-block w-100">
 
                 </div>
@@ -233,7 +233,7 @@
 
             </div>
 
-            {{-- FLECHAS --}}
+            {{-- FLECHA IZQUIERDA --}}
             <button class="carousel-control-prev"
                     type="button"
                     data-bs-target="#carouselRodada"
@@ -243,6 +243,7 @@
 
             </button>
 
+            {{-- FLECHA DERECHA --}}
             <button class="carousel-control-next"
                     type="button"
                     data-bs-target="#carouselRodada"
@@ -373,7 +374,7 @@
 
                 @if($rodada->circuito->imagen)
 
-                <img src="{{ asset('storage/' . $rodada->circuito->imagen) }}"
+                <img src="{{ asset($rodada->circuito->imagen) }}"
                      class="img-fluid rounded mb-3">
 
                 @endif
