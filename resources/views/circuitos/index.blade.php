@@ -85,7 +85,7 @@
 
                 <div class="p-3 bg-light d-flex justify-content-center align-items-center img-container">
 
-                    <img src="{{ asset('storage/' . $circuito->imagen) }}"
+                    <img src="{{ asset($circuito->imagen) }}"
                          class="img-circuito">
 
                 </div>

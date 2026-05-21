@@ -114,7 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         locale: 'es',
 
-        // 🔥 BOTONES EN ESPAÑOL
         buttonText: {
 
             day: 'Día',
@@ -122,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         },
 
-        // 🔥 TOOLBAR SIMPLE
         headerToolbar: {
 
             left: 'prev,next',
@@ -133,23 +131,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         },
 
-        // 🔥 VISTA
         initialView: fecha
             ? 'dayGridDay'
             : 'dayGridMonth',
 
         initialDate: fecha ? fecha : new Date(),
 
-        // 🔥 MENSAJE SIN EVENTOS
         noEventsContent: 'Hoy no hay rodadas',
 
-        // 🔥 ALTURA AUTO
         height: 'auto',
 
-        // 🔥 EVENTOS
         events: 'rodadas-json',
 
-        // 🔥 CONTENIDO EVENTOS
         eventContent: function(arg) {
 
             return {
@@ -158,7 +151,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         },
 
-        // 🔥 COLORES
         eventDidMount: function(info) {
 
             let plazas = info.event.extendedProps.plazas;
@@ -190,7 +182,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         },
 
-        // 🔥 CLICK EVENTO
         eventClick: function(info) {
 
             // TÍTULO
@@ -219,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('modalLink').href =
 
                 window.location.origin +
-                '/proyectoprueba/public/rodadas/' +
+                '/rodadas/' +
                 info.event.id;
 
             // IMAGEN
@@ -229,9 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 document.getElementById('modalImagen').src =
 
-                    window.location.origin +
-                    '/proyectoprueba/public/storage/' +
-                    imagen;
+                    window.location.origin + '/' + imagen;
 
             }
 
