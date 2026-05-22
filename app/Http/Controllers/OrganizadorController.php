@@ -14,7 +14,10 @@ public function index(Request $request)
 {
     $buscar = $request->buscar;
 
-    $organizadores = Organizador::where('nombre', 'like', "%$buscar%")
+    $organizadores = Organizador::whereRaw(
+            'LOWER(nombre) LIKE ?',
+            ['%' . strtolower($buscar) . '%']
+        )
         ->paginate(10);
 
     $organizadores->appends([

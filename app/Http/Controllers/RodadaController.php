@@ -11,64 +11,36 @@ use Illuminate\Http\Request;
 class RodadaController extends Controller
 {
     public function index(Request $request)
-    {
-        $buscar = $request->buscar;
+{
+    $buscar = $request->buscar;
 
-        // 🔥 ORGANIZADOR
-        if (auth()->user()->rol === 'organizador') {
+    // 🔥 ORGANIZADOR
+    if (auth()->user()->rol === 'organizador') {
 
-            $organizador = Organizador::where(
-                'email',
-                auth()->user()->email
-            )->first();
+        $organizador = Organizador::where(
+            'email',
+            auth()->user()->email
+        )->first();
 
-            if ($organizador) {
+        if ($organizador) {
 
-                $rodadas = Rodada::with([
-                        'circuito',
-                        'organizador',
-                        'inscritos'
-                    ])
-
-                    ->where('organizador_id', $organizador->id)
-
-                    // 🔥 BUSCADOR
-                    ->when($buscar, function ($query) use ($buscar) {
-
-                        $query->whereHas('circuito', function ($q) use ($buscar) {
-
-                            $q->where('nombre', 'like', "%$buscar%");
-
-                        });
-
-                    })
-
-                    // 🔥 ORDEN FECHA
-                    ->orderBy('fecha', 'asc')
-
-                    ->paginate(10);
-
-            } else {
-
-                $rodadas = collect();
-
-            }
-
-        } else {
-
-            // 🔥 ADMIN Y USUARIO NORMAL
             $rodadas = Rodada::with([
                     'circuito',
                     'organizador',
                     'inscritos'
                 ])
 
+                ->where('organizador_id', $organizador->id)
+
                 // 🔥 BUSCADOR
                 ->when($buscar, function ($query) use ($buscar) {
 
                     $query->whereHas('circuito', function ($q) use ($buscar) {
 
-                        $q->where('nombre', 'like', "%$buscar%");
+                        $q->whereRaw(
+                            'LOWER(nombre) LIKE ?',
+                            ['%' . strtolower($buscar) . '%']
+                        );
 
                     });
 
@@ -79,14 +51,48 @@ class RodadaController extends Controller
 
                 ->paginate(10);
 
+        } else {
+
+            $rodadas = collect();
+
         }
 
-        $rodadas->appends([
-            'buscar' => $buscar
-        ]);
+    } else {
 
-        return view('rodadas.index', compact('rodadas', 'buscar'));
+        // 🔥 ADMIN Y USUARIO NORMAL
+        $rodadas = Rodada::with([
+                'circuito',
+                'organizador',
+                'inscritos'
+            ])
+
+            // 🔥 BUSCADOR
+            ->when($buscar, function ($query) use ($buscar) {
+
+                $query->whereHas('circuito', function ($q) use ($buscar) {
+
+                    $q->whereRaw(
+                        'LOWER(nombre) LIKE ?',
+                        ['%' . strtolower($buscar) . '%']
+                    );
+
+                });
+
+            })
+
+            // 🔥 ORDEN FECHA
+            ->orderBy('fecha', 'asc')
+
+            ->paginate(10);
+
     }
+
+    $rodadas->appends([
+        'buscar' => $buscar
+    ]);
+
+    return view('rodadas.index', compact('rodadas', 'buscar'));
+}
 
     public function create()
     {
