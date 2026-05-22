@@ -17,6 +17,7 @@ class CircuitoController extends Controller
     $buscar = $request->buscar;
 
     $circuitos = Circuito::where('nombre', 'like', "%$buscar%")
+        ->orderBy('id', 'asc')
         ->paginate(15);
 
     $circuitos->appends([
