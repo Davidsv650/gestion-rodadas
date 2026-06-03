@@ -62,7 +62,7 @@ class UsuarioController extends Controller
         $datos = $request->except('_token');
     $datos['password'] = Hash::make($request->password);
 
-    // 🔥 usar create en vez de insert
+    // usamos create en vez de insert 
     Usuario::create($datos);
 
     return redirect('usuarios')->with('mensaje', 'Usuario creado');
@@ -108,11 +108,11 @@ class UsuarioController extends Controller
 
     $datos = $request->except(['_token', '_method']);
 
-    // Si se escribe nueva contraseña → encriptarla
+    // Si se escribe nueva contraseña se encripta
     if ($request->filled('password')) {
         $datos['password'] = Hash::make($request->password);
     } else {
-        // Si no se escribe contraseña → no tocarla
+        
         unset($datos['password']);
     }
 

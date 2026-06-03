@@ -4,7 +4,7 @@
 
 <style>
 
-/* 🔥 HERO */
+/* hero */
 .hero-rodada {
 
     position: relative;
@@ -17,7 +17,7 @@
 
 }
 
-/* 🔥 CARRUSEL */
+/* carrusel */
 .carousel-item img {
 
     height: 500px;
@@ -30,7 +30,7 @@
 
 }
 
-/* 🔥 TEXTO HERO */
+/* texto hero */
 .hero-text {
 
     position: absolute;
@@ -65,7 +65,7 @@
 
 }
 
-/* 🔥 BANDA FINALIZADA */
+/* banda de rodada finalizada */
 .ribbon-finalizada {
 
     position: absolute;
@@ -92,7 +92,7 @@
 
 }
 
-/* 🔥 CARDS */
+/* tarjeatas */
 .info-card {
 
     border: none;
@@ -103,7 +103,7 @@
 
 }
 
-/* 🔥 BOTONES */
+/* botones */
 .btn {
 
     transition: all 0.25s ease;
@@ -116,7 +116,7 @@
 
 }
 
-/* 🔥 RESPONSIVE */
+/* responsive */
 @media (max-width: 768px) {
 
     .carousel-item img {
@@ -151,7 +151,7 @@
 
 <div class="container mt-4">
 
-    {{-- TITULO --}}
+    {{-- titulo --}}
     <div class="d-flex align-items-center mb-4">
 
         <h1 class="mb-0">
@@ -162,7 +162,7 @@
 
     </div>
 
-    {{-- ALERTA FINALIZADA --}}
+    {{-- alerta rodada fnalizada --}}
     @if($rodada->finalizada)
 
     <div class="alert alert-danger shadow-sm mb-4">
@@ -173,10 +173,10 @@
 
     @endif
 
-    {{-- HERO --}}
+    {{-- hero --}}
     <div class="hero-rodada mb-4">
 
-        {{-- BANDA --}}
+        {{-- banda --}}
         @if($rodada->finalizada)
 
         <div class="ribbon-finalizada">
@@ -187,12 +187,12 @@
 
         @endif
 
-        {{-- CARRUSEL --}}
+        {{-- carrusel --}}
         <div id="carouselRodada"
              class="carousel slide"
              data-bs-ride="carousel">
 
-            {{-- INDICADORES --}}
+            {{-- indicadores --}}
             <div class="carousel-indicators">
 
                 @foreach($rodada->circuito->imagenes->unique('imagen')->values() as $key => $imagen)
@@ -207,7 +207,7 @@
 
             </div>
 
-            {{-- IMÁGENES --}}
+            {{-- imagenes --}}
             <div class="carousel-inner">
 
                 @forelse($rodada->circuito->imagenes->unique('imagen')->values() as $key => $imagen)
@@ -221,7 +221,7 @@
 
                 @empty
 
-                {{-- FALLBACK --}}
+                {{-- fallblack --}}
                 <div class="carousel-item active">
 
                     <img src="{{ asset($rodada->circuito->imagen) }}"
@@ -233,7 +233,7 @@
 
             </div>
 
-            {{-- FLECHA IZQUIERDA --}}
+            {{-- flecha izquierda --}}
             <button class="carousel-control-prev"
                     type="button"
                     data-bs-target="#carouselRodada"
@@ -243,7 +243,7 @@
 
             </button>
 
-            {{-- FLECHA DERECHA --}}
+            {{-- flecha derecha --}}
             <button class="carousel-control-next"
                     type="button"
                     data-bs-target="#carouselRodada"
@@ -255,7 +255,7 @@
 
         </div>
 
-        {{-- TEXTO HERO --}}
+        {{-- texto hero --}}
         <div class="hero-text">
 
             <h1>
@@ -280,7 +280,7 @@
 
     </div>
 
-    {{-- CONTENIDO --}}
+    {{-- contenido --}}
     <div class="row">
 
         {{-- INFO --}}
@@ -331,7 +331,7 @@
 
                 </p>
 
-                {{-- ESTADO --}}
+                {{-- estado --}}
                 <p class="fs-5">
 
                     ℹ️ <strong>Estado:</strong>
@@ -360,10 +360,10 @@
 
         </div>
 
-        {{-- SIDEBAR --}}
+        {{-- sidebar --}}
         <div class="col-lg-4">
 
-            {{-- CIRCUITO --}}
+            {{-- circuito --}}
             <div class="card info-card p-3 mb-4 text-center">
 
                 <h4 class="mb-3">
@@ -388,7 +388,7 @@
 
             </div>
 
-            {{-- ORGANIZADOR --}}
+            {{-- organizador --}}
             <div class="card info-card p-3 text-center">
 
                 <h4 class="mb-3">
@@ -415,7 +415,7 @@
 
     </div>
 
-    {{-- BOTONES --}}
+    {{-- botones --}}
     <div class="mt-4 d-flex gap-2 flex-wrap">
 
         <a href="{{ url('/rodadas') }}"
@@ -434,7 +434,7 @@
 
     </div>
 
-    {{-- DESCRIPCIÓN --}}
+    {{-- descripcion --}}
     @if($rodada->descripcion)
 
     <div class="card info-card p-4 mt-4">

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Inscripcion extends Model
 {
     //
-      protected $table = 'inscripciones'; // <--- nombre correcto en la DB
+      protected $table = 'inscripciones'; // nombre correcto en la base de datos
         protected $casts = [
         'fecha' => 'date',
     ];

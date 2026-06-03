@@ -8,7 +8,7 @@
 </div>
 @endif
 
-{{-- RODADA --}}
+{{-- rodada --}}
 <label for="rodada_id">Rodada</label>
 <select name="rodada_id" id="rodada_id" class="form-control">
 <option value="">Selecciona una rodada</option>
@@ -26,13 +26,13 @@ selected
 </select>
 <br>
 
-{{-- FECHA --}}
+{{-- fecha --}}
 <label for="fecha">Fecha de inscripción</label>
 <input type="date" name="fecha" id="fecha" class="form-control"
 value="{{ isset($inscripcion->fecha) ? $inscripcion->fecha->format('Y-m-d') : old('fecha') }}">
 <br>
 
-{{-- ESTADO --}}
+{{-- estado --}}
 <label for="estado">Estado</label>
 <select name="estado" id="estado" class="form-control">
 <option value="inscrito" {{ (isset($inscripcion) && $inscripcion->estado=='inscrito') ? 'selected' : '' }}>
@@ -44,7 +44,7 @@ value="{{ isset($inscripcion->fecha) ? $inscripcion->fecha->format('Y-m-d') : ol
 </select>
 <br>
 
-{{-- BOTÓN --}}
+{{-- boton --}}
 @if (isset($submit))
 <input type="submit" class="btn btn-primary" value="{{ $submit }}">
 @else

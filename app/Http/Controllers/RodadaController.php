@@ -14,7 +14,7 @@ class RodadaController extends Controller
 {
     $buscar = $request->buscar;
 
-    // 🔥 ORGANIZADOR
+    // organizador
     if (auth()->user()->rol === 'organizador') {
 
         $organizador = Organizador::where(
@@ -32,7 +32,7 @@ class RodadaController extends Controller
 
                 ->where('organizador_id', $organizador->id)
 
-                // 🔥 BUSCADOR
+                // buscador
                 ->when($buscar, function ($query) use ($buscar) {
 
                     $query->whereHas('circuito', function ($q) use ($buscar) {
@@ -46,7 +46,7 @@ class RodadaController extends Controller
 
                 })
 
-                // 🔥 ORDEN FECHA
+                // ordenar por fecha
                 ->orderBy('fecha', 'asc')
 
                 ->paginate(10);
@@ -59,14 +59,14 @@ class RodadaController extends Controller
 
     } else {
 
-        // 🔥 ADMIN Y USUARIO NORMAL
+        // adminstrador y usuario normal
         $rodadas = Rodada::with([
                 'circuito',
                 'organizador',
                 'inscritos'
             ])
 
-            // 🔥 BUSCADOR
+            // buscador de rodadas
             ->when($buscar, function ($query) use ($buscar) {
 
                 $query->whereHas('circuito', function ($q) use ($buscar) {
@@ -80,7 +80,7 @@ class RodadaController extends Controller
 
             })
 
-            // 🔥 ORDEN FECHA
+            // ordenaro por fecha
             ->orderBy('fecha', 'asc')
 
             ->paginate(10);
@@ -123,16 +123,16 @@ class RodadaController extends Controller
 
         $datos = $request->except('_token');
 
-        // 🔥 BUSCAR ORGANIZADOR POR EMAIL
+        // buscar organizador por email
         $organizador = Organizador::where(
             'email',
             auth()->user()->email
         )->first();
 
-        // 🔥 ASIGNAR ORGANIZADOR
+        // aginacion de organizador
         $datos['organizador_id'] = $organizador->id;
 
-        // 🔥 CREAR
+        //crear rodada
         Rodada::create($datos);
 
         return redirect('rodadas')
@@ -141,10 +141,10 @@ class RodadaController extends Controller
 
 public function show(Rodada $rodada)
 {
-    // 🔥 FINALIZADA AUTOMÁTICA
+    // finalización automatica por fecha
     $rodada->finalizada = $rodada->fecha < now();
 
-    // 🔥 CARGAR RELACIONES
+    // cargar relaciones
     $rodada->load([
 
         'circuito.imagenes',
@@ -221,7 +221,7 @@ public function show(Rodada $rodada)
             'organizador'
         ]);
 
-        // 🔥 FILTRO CIRCUITO
+        // filtro de circuitos
         if ($request->filled('circuito_id')) {
 
             $query->where(
@@ -231,7 +231,7 @@ public function show(Rodada $rodada)
 
         }
 
-        // 🔥 FILTRO ORGANIZADOR
+        // filtro de organizador
         if ($request->filled('organizador_id')) {
 
             $query->where(
@@ -241,7 +241,7 @@ public function show(Rodada $rodada)
 
         }
 
-        // 🔥 ORDEN FECHA
+        // ordenar por fecha
         $rodadas = $query
             ->orderBy('fecha', 'asc')
             ->get();
@@ -258,7 +258,7 @@ public function show(Rodada $rodada)
 
                     'start' => $rodada->fecha->format('Y-m-d'),
 
-                    // 🔥 FULLCALENDAR
+                    // fullcalendar 
                     'extendedProps' => [
 
                         'circuito' =>

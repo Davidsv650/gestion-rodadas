@@ -24,7 +24,7 @@ class InscripcionController extends Controller
                     ->paginate(10);
             }
 
-        // ORGANIZADOR
+        // organizador
         } elseif (auth()->user()->rol === 'organizador') {
 
             $organizador = Organizador::where('email', auth()->user()->email)->first();
@@ -35,7 +35,7 @@ class InscripcionController extends Controller
                 })
                 ->paginate(10);
 
-        // USUARIO NORMAL
+        // usuario normal
         } else {
 
             $datos['inscripciones'] = Inscripcion::with(['usuario','rodada'])
@@ -50,7 +50,7 @@ class InscripcionController extends Controller
     {
         $rodadas = Rodada::all();
 
-        // ⚠️ ya NO usamos usuarios en el form
+        // ya no se usa usariaos en el formulario
         return view('inscripciones.create', compact('rodadas'));
     }
 

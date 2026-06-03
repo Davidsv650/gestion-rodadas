@@ -10,7 +10,7 @@ class Rodada extends Model
 
         'fecha' => 'date',
 
-        // 🔥 FINALIZADA AUTOMÁTICA
+        // finalización automatica de la rodada
         'finalizada' => 'boolean',
 
     ];
@@ -28,7 +28,7 @@ class Rodada extends Model
     ];
 
     /**
-     * INSCRITOS
+     * inscritos
      */
 
     public function inscritos()
@@ -40,7 +40,7 @@ class Rodada extends Model
     }
 
     /**
-     * CIRCUITO
+     * circuitos
      */
 
     public function circuito()
@@ -51,7 +51,7 @@ class Rodada extends Model
     }
 
     /**
-     * ORGANIZADOR
+     * organizadores
      */
 
     public function organizador()

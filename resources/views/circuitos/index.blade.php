@@ -23,7 +23,7 @@
 
 <div class="container mt-4">
 
-    {{-- CABECERA --}}
+    {{-- cabecera --}}
     <div class="d-flex justify-content-between align-items-center mb-4">
 
         <h1>Circuitos</h1>
@@ -42,7 +42,7 @@
 
     </div>
 
-    {{-- BUSCADOR --}}
+    {{-- buscador --}}
     <div class="row mb-4">
 
         <form action="{{ route('circuitos.index') }}"
@@ -71,7 +71,7 @@
 
     </div>
 
-    {{-- GRID DE CIRCUITOS --}}
+    {{-- grid de circuitos --}}
     <div class="row">
 
         @forelse ($circuitos as $circuito)
@@ -80,7 +80,7 @@
 
             <div class="card h-100 shadow-sm card-hover">
 
-                {{-- IMAGEN --}}
+                {{-- imagenes --}}
                 @if($circuito->imagen)
 
                 <div class="p-3 bg-light d-flex justify-content-center align-items-center img-container">
@@ -92,7 +92,7 @@
 
                 @endif
 
-                {{-- BODY --}}
+                {{-- cuerpo --}}
                 <div class="card-body d-flex flex-column">
 
                     <h5 class="card-title">
@@ -116,7 +116,7 @@
 
                     </p>
 
-                    {{-- RODADAS --}}
+                    {{-- rodadas --}}
                     @if($circuito->rodadas->count() > 0)
 
                     <p><strong>🏁 Rodadas:</strong></p>
@@ -143,7 +143,7 @@
 
                     @endif
 
-                    {{-- BOTONES --}}
+                    {{-- botones --}}
                     <div class="mt-auto">
 
                         @if($esAdmin)
@@ -198,7 +198,7 @@
 
     </div>
 
-    {{-- PAGINACIÓN --}}
+    {{-- paginacion --}}
     <div class="mt-3">
 
         {!! $circuitos->links() !!}

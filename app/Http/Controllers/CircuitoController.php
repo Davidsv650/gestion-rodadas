@@ -71,7 +71,7 @@ class CircuitoController extends Controller
         'imagenes'
     ]);
 
-    // 🔥 IMAGEN PRINCIPAL
+    // imagen principal
     if ($request->hasFile('imagen')) {
 
         $datos['imagen'] = $request
@@ -80,10 +80,10 @@ class CircuitoController extends Controller
 
     }
 
-    // 🔥 CREAR CIRCUITO
+    // crear circuito
     $circuito = Circuito::create($datos);
 
-    // 🔥 GALERÍA
+    // galeria de circuitos
     if($request->hasFile('imagenes')) {
 
         foreach($request->file('imagenes') as $imagenGaleria) {
@@ -154,7 +154,7 @@ class CircuitoController extends Controller
         'imagenes'
     ]);
 
-    // 🔥 IMAGEN PRINCIPAL
+    // imagen principal del circuito
     if ($request->hasFile('imagen'))
     {
         Storage::delete('public/' . $circuito->imagen);
@@ -166,7 +166,7 @@ class CircuitoController extends Controller
 
     $circuito->update($datos);
 
-    // 🔥 NUEVAS IMÁGENES GALERÍA
+    // imagenes del carrusel
     if($request->hasFile('imagenes')) {
 
         foreach($request->file('imagenes') as $imagenGaleria) {

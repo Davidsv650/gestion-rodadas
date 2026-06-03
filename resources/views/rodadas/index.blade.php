@@ -4,7 +4,7 @@
 
 <style>
 
-/* 🔥 HOVER SUAVE CARDS */
+/* hover suave etiquetas */
 .card-hover {
 
     transition: all 0.3s ease;
@@ -23,7 +23,7 @@
 
 }
 
-/* 🔥 BOTONES MÁS ELEGANTES */
+/* botones mas bonitos */
 .btn {
 
     transition: all 0.25s ease;
@@ -36,7 +36,7 @@
 
 }
 
-/* 🔥 BANDA RODADA REALIZADA */
+/* banda para rodada finalizada */
 .ribbon-realizada {
 
     position: absolute;
@@ -92,7 +92,7 @@
 
 <div class="container mt-4">
 
-    {{-- CABECERA --}}
+    {{-- cabecera --}}
     <div class="d-flex justify-content-between align-items-center mb-4">
 
         <h1>
@@ -119,7 +119,7 @@
 
     </div>
 
-    {{-- BUSCADOR --}}
+    {{-- buscador --}}
     <div class="row mb-4">
 
         <form action="{{ route('rodadas.index') }}"
@@ -148,7 +148,7 @@
 
     </div>
 
-    {{-- GRID --}}
+    {{-- grid --}}
     <div class="row">
 
         @forelse($rodadas as $rodada)
@@ -177,7 +177,7 @@
                 {{ $realizada ? 'opacity-75 border-dark' : '' }}
                 {{ $inscripcion ? 'border-success-subtle bg-light' : '' }}">
 
-                {{-- 🔥 BANDA --}}
+                {{-- banda de rodada finalizada --}}
                 @if($realizada)
 
                 <div class="ribbon-realizada">
@@ -190,7 +190,7 @@
 
                 <div class="card-body d-flex flex-column">
 
-                    {{-- CABECERA CARD --}}
+                    {{-- cabecera de tarjetas --}}
                     <div class="d-flex justify-content-between align-items-start">
 
                         <div>
@@ -213,7 +213,7 @@
 
                         </div>
 
-                        {{-- ADMIN Y ORGANIZADOR --}}
+                        {{-- administrador y organizador --}}
                         @if($esAdmin || $esOrganizadorDeLaRodada)
 
                         <div>
@@ -248,7 +248,7 @@
 
                     </div>
 
-                    {{-- INFO --}}
+                    {{-- informacion --}}
                     <p class="mt-3">
 
                         <strong>📅 Fecha:</strong>
@@ -302,7 +302,7 @@
 
                     </p>
 
-                    {{-- BOTONES --}}
+                    {{-- botones --}}
                     <div class="mt-auto">
 
                         <a href="{{ url('/calendario') }}?fecha={{ $rodada->fecha }}"
@@ -319,7 +319,7 @@
 
                         </a>
 
-                        {{-- ADMIN --}}
+                        {{-- administrador --}}
                         @if($esAdmin)
 
                         <a href="{{ url('/inscripciones?rodada_id=' . $rodada->id) }}"
@@ -331,7 +331,7 @@
 
                         @endif
 
-                        {{-- INSCRIPCIÓN --}}
+                        {{-- inscripciones --}}
                         @if($realizada)
 
                         <button class="btn btn-outline-dark btn-sm me-1 mb-1" disabled>
@@ -426,7 +426,7 @@
 
     </div>
 
-    {{-- PAGINACIÓN --}}
+    {{-- paginacion --}}
     <div class="mt-3">
 
         {!! $rodadas->links() !!}

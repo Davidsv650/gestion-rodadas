@@ -19,7 +19,7 @@
 
 <div class="container mt-4">
 
-    {{-- CABECERA --}}
+    {{-- cabecera --}}
     <div class="d-flex justify-content-between align-items-center mb-4">
 
         <h1>Usuarios</h1>
@@ -34,7 +34,7 @@
 
     </div>
 
-    {{-- BUSCADOR --}}
+    {{-- buscador --}}
     <div class="row mb-4">
 
         <form action="{{ route('usuarios.index') }}"
@@ -63,7 +63,7 @@
 
     </div>
 
-    {{-- TABLA --}}
+    {{-- tabla --}}
     <div class="table-responsive">
 
         <table class="table table-hover align-middle">
@@ -149,7 +149,7 @@
 
     </div>
 
-    {{-- PAGINACIÓN --}}
+    {{-- paginación --}}
     <div class="mt-3">
 
         {!! $usuarios->links() !!}

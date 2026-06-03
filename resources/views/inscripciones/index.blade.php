@@ -7,7 +7,7 @@
 
 <div class="container mt-4">
 
-    {{-- MENSAJE --}}
+    {{-- mensaje --}}
     @if(Session::has('mensaje'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ Session::get('mensaje') }}
@@ -34,7 +34,7 @@
     @endif
 
 </div>
-    {{-- TABLA --}}
+    {{-- tabla --}}
     <div class="table-responsive">
         <table class="table table-hover align-middle">
 
@@ -54,29 +54,29 @@
                 @forelse ($inscripciones as $inscripcion)
                 <tr>
 
-                    {{-- USUARIO --}}
+                    {{-- usuario --}}
                     <td>
                         {{ optional($inscripcion->usuario)->nombre ?? 'Sin usuario' }}
                     </td>
 
-                    {{-- RODADA --}}
+                    {{-- rodada --}}
                     <td>
                         {{ optional($inscripcion->rodada)->titulo ?? 'Sin rodada' }}
                     </td>
 
-                    {{-- FECHA --}}
+                    {{-- fecha --}}
                     <td>
                         {{ \Carbon\Carbon::parse($inscripcion->fecha)->format('d-m-Y') }}
                     </td>
 
-                    {{-- ESTADO --}}
+                    {{-- estado --}}
                     <td>
                         <span class="badge bg-success">
                             {{ $inscripcion->estado }}
                         </span>
                     </td>
 
-                    {{-- ACCIONES ADMIN --}}
+                    {{-- acciones de admin --}}
                     @if($esAdmin)
                     <td class="text-end">
 

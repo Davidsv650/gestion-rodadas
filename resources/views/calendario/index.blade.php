@@ -24,7 +24,7 @@
 
 </div>
 
-{{-- MODAL --}}
+{{-- modal --}}
 <div class="modal fade" id="rodadaModal" tabindex="-1">
 
     <div class="modal-dialog modal-lg">
@@ -46,7 +46,7 @@
 
                 <div class="row">
 
-                    {{-- TEXTO --}}
+                    {{-- texto --}}
                     <div class="col-md-7">
 
                         <p>
@@ -71,7 +71,7 @@
 
                     </div>
 
-                    {{-- IMAGEN --}}
+                    {{-- imagen --}}
                     <div class="col-md-5 text-center">
 
                         <img id="modalImagen"
@@ -184,12 +184,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         eventClick: function(info) {
 
-            // TÍTULO
+            // titulo
             document.getElementById('modalTitle').innerHTML =
 
                 '🏍️ ' + info.event.title;
 
-            // DATOS
+            // datos
             document.getElementById('modalCircuito').innerText =
 
                 info.event.extendedProps.circuito;
@@ -206,14 +206,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 info.event.extendedProps.plazas;
 
-            // LINK
+            // link
             document.getElementById('modalLink').href =
 
                 window.location.origin +
                 '/rodadas/' +
                 info.event.id;
 
-            // IMAGEN
+            // imagenes
             let imagen = info.event.extendedProps.imagen;
 
             if (imagen) {
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             }
 
-            // MODAL
+            // modal
             var modal = new bootstrap.Modal(
 
                 document.getElementById('rodadaModal')

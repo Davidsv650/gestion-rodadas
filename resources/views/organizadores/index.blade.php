@@ -19,7 +19,7 @@
 
 <div class="container mt-4">
 
-    {{-- CABECERA --}}
+    {{-- cabecera --}}
     <div class="d-flex justify-content-between align-items-center mb-4">
 
         <h1>Organizadores</h1>
@@ -34,7 +34,7 @@
 
     </div>
 
-    {{-- BUSCADOR --}}
+    {{-- buscador --}}
     <div class="row mb-4">
 
         <form action="{{ route('organizadores.index') }}"
@@ -63,7 +63,7 @@
 
     </div>
 
-    {{-- GRID --}}
+    {{-- grid --}}
     <div class="row">
 
         @forelse($organizadores as $org)
@@ -141,7 +141,7 @@
 
                     @endif
 
-                    {{-- BOTONES --}}
+                    {{-- botones --}}
                     <div class="mt-auto">
 
                         <a href="{{ url('/organizadores/' . $org->id . '/edit') }}"
@@ -192,7 +192,7 @@
 
     </div>
 
-    {{-- PAGINACIÓN --}}
+    {{-- paginacion --}}
     <div class="mt-3">
 
         {!! $organizadores->links() !!}

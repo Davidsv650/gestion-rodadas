@@ -16,7 +16,7 @@
 
 @endif
 
-{{-- NOMBRE --}}
+{{-- nombre --}}
 <label for="nombre">
 
     Nombre
@@ -33,7 +33,7 @@
 
 <br>
 
-{{-- UBICACIÓN --}}
+{{-- ubicación --}}
 <label for="ubicacion">
 
     Ubicación
@@ -50,7 +50,7 @@
 
 <br>
 
-{{-- LONGITUD --}}
+{{-- longitud --}}
 <label for="longitud">
 
     Longitud (km)
@@ -67,7 +67,7 @@
 
 <br>
 
-{{-- CURVAS --}}
+{{-- curvas --}}
 <label for="numero_de_curvas">
 
     Número de Curvas
@@ -84,7 +84,7 @@
 
 <br>
 
-{{-- FRASE --}}
+{{-- frase promocional --}}
 <label for="frase">
 
     Frase promocional
@@ -108,7 +108,7 @@
 
 <br><br>
 
-{{-- DESCRIPCIÓN --}}
+{{-- descripcion del circuito --}}
 <label for="descripcion">
 
     Descripción
@@ -125,7 +125,7 @@
 
 <br>
 
-{{-- IMAGEN PRINCIPAL --}}
+{{-- imagen principal --}}
 <div class="form-group">
 
 @if (isset($circuito->imagen))
@@ -154,7 +154,7 @@
 
 <br>
 
-{{-- GALERÍA --}}
+{{-- carrusel del circuito --}}
 <label for="imagenes">
 
     Galería del circuito
@@ -176,7 +176,7 @@
 
 <br><br>
 
-{{-- BOTONES --}}
+{{-- botones --}}
 @if (isset($submit))
 
 <input type="submit"
